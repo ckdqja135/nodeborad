@@ -98,6 +98,11 @@ fileSchema.methods.getFileStream = async function(){ // async 키워드가 추�
 var File = mongoose.model('file', fileSchema);
 
 // model methods
+// createNewInstance함수는 file, uploadedBy, postId를 받아 file모델의 객체을 DB에 생성하고 생성한 객체(인스턴스)를 리턴한다. 
+// 함수에 전달되는 file 인자는 multer로 생성된 file 정보가 들어있는 객체인데, 
+// 이 file 객체의 구조는 multer의 공식 npm 페이지 (https://www.npmjs.com/package/multer#file-information) 에서 볼 수도 있고, 
+// 아니면 console.log나 디버깅으로 직접 살펴볼 수도 있다.
+
 File.createNewInstance = async function(file, uploadedBy, postId){
   if(isBoxEnabled){ // using box.com
     var filePath = path.join(__dirname,'..','uploadedFiles',file.filename); // 파일 위치를 만든다.

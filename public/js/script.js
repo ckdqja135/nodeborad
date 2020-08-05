@@ -71,6 +71,7 @@ $(function(){
   }
 });
 
+// 게시물의 제목이 아주 긴 경우 댓글의 수를 '...' 다음에 표시해 주기 위한 코드
 $(function(){
   function resetTitleEllipsisWidth(){
     $('.board-table .title-text').each(function(i,e){

@@ -23,6 +23,7 @@
         </thead>
 
         <tbody>
+          <!-- 테이블의 column 수가 늘어났으므로 게시물이 없을 때 표시될 문구의 colspan의 수를 column 수와 맞춰준다. -->
           <% if(posts == null || posts.length == 0){ %>
             <tr>
               <td colspan=5> There is no data to show :( </td>

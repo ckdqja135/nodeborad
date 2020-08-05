@@ -54,6 +54,10 @@ util.getPostQueryString = function(req, res, next){
   next();
 }
 
+// array: tree구조로 변경할 array를 받는다.
+// idFieldName: array의 member에서 id를 가지는 field의 이름을 받는다.
+// parentIdFieldName: array의 member에서 부모id를 가지는 field의 이름을 받는다.
+// childrenFieldName: 생성된 자식들을 넣을 field의 이름을 정하여 넣는다.
 util.convertToTrees = function(array, idFieldName, parentIdFieldName, childrenFieldName){
   var cloned = array.slice();
 
