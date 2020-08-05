@@ -39,6 +39,7 @@ app.use(passport.session());
 app.use(function(req,res,next){
   res.locals.isAuthenticated = req.isAuthenticated();
   res.locals.currentUser = req.user;
+  //  위 bytesToSize함수를 ejs에서 사용할 수 있도록 res.locals.util에 util을 담았습니다.(물론 bytesToSize함수 뿐만 아니라 util의 모든 함수들이 이제 ejs에서 사용가능하다.)
   res.locals.util = util;
   next();
 });
@@ -48,7 +49,7 @@ app.use('/', require('./routes/home'));
 app.use('/posts', util.getPostQueryString, require('./routes/posts'));
 app.use('/users', require('./routes/users'));
 app.use('/comments', util.getPostQueryString, require('./routes/comments'));
-app.use('/files', require('./routes/files'));
+app.use('/files', require('./routes/files')); // files route에 files.js를 연결하는 코드.
 
 // Port setting
 var port = 3000;

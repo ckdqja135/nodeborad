@@ -23,6 +23,7 @@
           <div class="col-md-7 col-lg-8 col-xl-9 order-sm-2 order-md-1">
             <% if(post.attachment) { %>
               <div class="ml-2">
+                <!--  a 태그를 사용해서 파일에 맞는 files route를 만들어준다. -->
                 <small>📁 Attachment: <a href="/files/<%= post.attachment.serverFileName %>/<%= post.attachment.originalFileName %>"><%= post.attachment.originalFileName %></a> (<%= util.bytesToSize(post.attachment.size) %>)</small>
               </div>
             <% } %>

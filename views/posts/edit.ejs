@@ -16,7 +16,7 @@
           <li class="breadcrumb-item active" aria-current="page">Edit Post</li>
         </ol>
       </nav>
-
+      <!-- 게시판 - 파일첨부 기능 만들기 1 (업로드) 강의의 post new view의 form과 마찬가지로 enctype="multipart/form-data"를 form 태그에 추가 -->
       <form action="/posts/<%= post._id %>?_method=put<%= getPostQueryString(true) %>" enctype="multipart/form-data" method="post">
 
         <div class="form-group">
@@ -26,20 +26,24 @@
             <span class="invalid-feedback"><%= errors.title.message %></span>
           <% } %>
         </div>
-
+        <!-- Attachment 필드가 추가 됨. 첨부파일이 있는 경우, 첨부파일의 이름과 삭제 버튼을 보여주고, 첨부파일이 없는 경우 첨부파일을 업로드할 수 있는 버튼(input type="file")을 보여줌. -->
         <div class="form-group">
           <label for="title">Attachment</label>
-
+          <!-- 현재 게시물의 첨부파일 정보를 담고 있는 input name="attatchment"를 hidden type으로 form에 추가 해준다. 물론 첨부파일이 없다면 value는 ''이다. -->
           <input type="hidden" id="attachment" name="attachment" value="<%= post.attachment?post.attachment._id:'' %>">
 
+          <!-- 첨부파일의 이름과 삭제버튼은 post의 attachment가 있는 경우에만 표시한다. -->
           <% if(post.attachment){ %>
             <div class="input-group mb-3" id="currentAttachemnt">
+              <!-- 현재 첨부된 파일의 이름을 표시하는 부분. -->
               <input type="text" class="form-control" value="<%= post.attachment.originalFileName %>" readonly />
               <div class="input-group-append">
+                <!-- 첨부파일 삭제버튼. 이 버튼을 클릭하면 2-1번의 attachment의 값을 지우고(''로 변경), 2-2번의 태그들을 숨기고, 2-5의 태그를 보여준다. -->
                 <button class="btn btn-outline-secondary" type="button" onclick="$('#attachment').val('');$('#currentAttachemnt').hide();$('#newAttachment').removeClass('d-none');">Delete</button>
               </div>
             </div>
           <% } %>
+          <!-- 파일 업로드 버튼. 첨부파일이 있는 경우 'd-none' css class가 추가되어 숨겨져 있다가, 2-4번의 버튼을 누르면 보여진다. 첨부된 파일은 'newAttachment'로 서버에 전달됨. -->
           <input type="file" id="newAttachment" class="form-control-file <%= post.attachment?'d-none':'' %>" name="newAttachment" id="uploadImage">
         </div>
 

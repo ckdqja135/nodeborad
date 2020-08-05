@@ -74,7 +74,6 @@ util.convertToTrees = function(array, idFieldName, parentIdFieldName, childrenFi
         else {
           parent[childrenFieldName] = [cloned[i]];
         }
-
       }
       cloned.splice(i,1);
     }
@@ -83,11 +82,12 @@ util.convertToTrees = function(array, idFieldName, parentIdFieldName, childrenFi
   return cloned;
 }
 
+// .ignore에 uploadedFiles 폴더를 추가하여 해당 폴더와 그 안의 파일들이 git에 저장되지 않도록 하였다.
 util.bytesToSize = function(bytes) {
-   var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
-   if (bytes == 0) return '0 Byte';
-   var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
-   return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
+    var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+    if (bytes == 0) return '0 Byte';
+    var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
+    return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
 }
 
 module.exports = util;
