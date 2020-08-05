@@ -53,6 +53,9 @@
 ### 게시글(미입력 시)
 <p align = "center"> <img src = "https://user-images.githubusercontent.com/33046341/89377960-cf525100-d72d-11ea-85c9-c43788d8d0ee.png" width = 90%> </img></p>
 
+### 게시글 수정
+<p align = "center"> <img src = "https://user-images.githubusercontent.com/33046341/89378371-9c5c8d00-d72e-11ea-803e-bfc630fd98c0.png" width = 90%> </img></p>
+
 ### 계정 정보 조회
 <p align = "center"> <img src = "https://user-images.githubusercontent.com/33046341/89378011-e7c26b80-d72d-11ea-9e42-bcaa7006ce1b.png" width = 90%> </img></p>
 
